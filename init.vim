@@ -35,9 +35,18 @@ Plug 'mileszs/ack.vim'
 " pattern finder
 Plug 'dense-analysis/ale'
 " async lint engine
+Plug 'pangloss/vim-javascript'
+" js syntax
+Plug 'HerringtonDarkholme/yats.vim'
+" ts syntax
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+" svelte syntax
+Plug 'codechips/coc-svelte', {'do': 'npm install'}
+" svelte code completion
 call plug#end()
 " :PlugStatus
 " :PlugInstall
 " :PlugUpdate # plugs
 " :PlugClean # remove
 " :PlugUpgrade # vim-plug
+
