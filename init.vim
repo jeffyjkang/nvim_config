@@ -1,4 +1,4 @@
-set autoindent				" indent new line
+set autoindent          "indent new line
 set clipboard=unnamedplus		" copy paste from outside
 set expandtab				" converts tabs to white space
 set hlsearch				" highlight search
@@ -18,21 +18,17 @@ set splitright				" vertical splits auto right
 set tabstop=2				" two spaces for tab
 syntax enable				" Syntax highlighting
 
-call plug#begin("~/.vim/plugged")
+call plug#begin("~/.config/nvim/plugged")
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " theme
 Plug 'preservim/nerdtree'
 " file explorer
-Plug 'ryanoasis/vim-devicons'
-" icons
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " code completion
 Plug 'airblade/vim-gitgutter'
 " git mod indicator
 Plug 'vim-airline/vim-airline'
 " status/tabline
-Plug 'mileszs/ack.vim'
-" pattern finder
 Plug 'dense-analysis/ale'
 " async lint engine
 Plug 'pangloss/vim-javascript'
@@ -43,10 +39,39 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " svelte syntax
 Plug 'codechips/coc-svelte', {'do': 'npm install'}
 " svelte code completion
+Plug 'ryanoasis/vim-devicons'
+" icons
 call plug#end()
 " :PlugStatus
 " :PlugInstall
 " :PlugUpdate # plugs
 " :PlugClean # remove
 " :PlugUpgrade # vim-plug
+
+source $HOME/.config/nvim/autoload/plug.vim
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+let g:svelte_preprocessors = ['typescript']
+let NERDTreeShowHidden = 1
+let g:tokyonight_style = "night"
+colorscheme tokyonight
+" for coc
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+" ** tab trigger completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" for yats
+set re=0
 
