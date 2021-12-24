@@ -1,5 +1,6 @@
 set autoindent          "indent new line
 set clipboard=unnamedplus		" copy paste from outside
+set cursorline          " highlight current line
 set expandtab				" converts tabs to white space
 set hlsearch				" highlight search
 set ignorecase				" ignore case in search params
@@ -11,11 +12,12 @@ set shiftwidth=2			" space for indentation
 set showmatch				" show matching bracket
 set showtabline				" display tab
 set smartindent				" connect with indent settings <BS>
-set smarttab				" connect with tab settings <BS>
-set softtabstop=2                       " editing operations <BS>
+set softtabstop=2     " editing operations <BS>
 set splitbelow				" horizontal splits auto below
 set splitright				" vertical splits auto right
 set tabstop=2				" two spaces for tab
+set wildmode=longest,list "bash like auto completion
+set wildmenu        " advanced auto completion
 syntax enable				" Syntax highlighting
 
 call plug#begin("~/.config/nvim/plugged")
@@ -41,6 +43,10 @@ Plug 'codechips/coc-svelte', {'do': 'npm install'}
 " svelte code completion
 Plug 'ryanoasis/vim-devicons'
 " icons
+Plug 'jiangmiao/auto-pairs'
+" auto pair
+Plug 'ap/vim-css-color'
+" direct css colors in editor
 call plug#end()
 " :PlugStatus
 " :PlugInstall
